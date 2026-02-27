@@ -5,10 +5,11 @@ INSERT INTO `youã`.`genero`
 `icone`,
 `cor`)
 VALUES
-("Rock","","red"),
-("Pop","","blue"),
-("MPB","","#FACADA"),
-("Indie","","#d058db");
+("Synth","","cyan"),
+("Rock","","purple"),
+("Pop","","yellow"),
+("MPB","","green"),
+("Indie","","red");
 
 INSERT INTO `youã`.`musica`
 (`cantor`,
