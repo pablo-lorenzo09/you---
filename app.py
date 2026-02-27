@@ -7,6 +7,7 @@ from model.musica import adicionar_musica
 from model.musica import deletar_musica
 from model.musica import alterar_musica
 from model.musica import recuperar_musicas_filtro
+from model.musica import recuperar_musicas_dois
 
 from model.genero import recuperar_generos
 
@@ -23,7 +24,7 @@ def pag_principal():
 @app.route("/admin")
 
 def pag_adm():
-    musicas = recuperar_musicas()
+    musicas = recuperar_musicas_dois()
     genero = recuperar_generos()
     
 

@@ -8,6 +8,22 @@ def recuperar_musicas():
      
     cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
                         inner join genero on musica.nome_genero = genero.genero 
+                        WHERE stats = "ATIVO"
+                        ORDER BY musica.id_musica ASC;""")
+
+    musicas=cursor.fetchall()
+
+
+    conexao.close()
+
+    return musicas
+
+def recuperar_musicas_dois():
+    conexao,cursor = conectar()
+
+     
+    cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
+                        inner join genero on musica.nome_genero = genero.genero 
                         ORDER BY musica.id_musica ASC;""")
 
     musicas=cursor.fetchall()
