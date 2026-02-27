@@ -85,7 +85,7 @@ def recuperar_musicas_filtro(genero):
 
     cursor.execute("""SELECT musica.id_musica,musica.cantor,musica.duracao,musica.nome,musica.url_capa,musica.nome_genero,musica.stats,genero.cor FROM musica
                         INNER JOIN genero ON musica.nome_genero = genero.genero
-                        WHERE musica.nome_genero = %s
+                        WHERE musica.nome_genero = %s and musica.stats = "ATIVO"
                         ORDER BY musica.id_musica ASC;""",(genero,))
 
     musicas=cursor.fetchall()
