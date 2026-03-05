@@ -6,14 +6,16 @@ def cadastrar_usuarios(usuario, senha):
      
     cursor.execute("""insert into `youã`.`usuarios`
                       (`usuario`,
-                       `senha`);
+                       `senha`)
                    
                     values
-                    (%s,%s)""",(usuario,senha))
+                    (%s,%s)""",(usuario, senha))
 
 
     conexao.commit()
     conexao.close()
+
+    print(senha)
 
 def autenticar_usuario(login, senha):
     pass
