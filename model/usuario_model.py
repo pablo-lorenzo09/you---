@@ -1,3 +1,19 @@
-def autenticar_usuario(login, senha):
-    
+from database.conexao import conectar
 
+def cadastrar_usuario(usuario, senha):
+    conexao,cursor = conectar()
+
+     
+    cursor.execute("""insert into `youã`.`usuarios`
+                      (`usuario`,
+                       `senha`);
+                   
+                    values
+                    (%s,%s)""",(usuario,senha))
+
+
+    conexao.commit()
+    conexao.close()
+
+def autenticar_usuario(login, senha):
+    pass

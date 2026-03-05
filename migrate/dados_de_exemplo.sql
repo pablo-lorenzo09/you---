@@ -23,3 +23,9 @@ VALUES
 ("Tame Impala ","00:03:38","The Less I Know The Better","https://m.media-amazon.com/images/I/91dTLHSQdkL.jpg","Rock","ATIVO"),
 ("Fresno","00:03:56","Quebre as correntes","https://images.genius.com/5615192b37a6ff6553743cd73569eef1.999x999x1.png","Rock","ATIVO");
 
+insert into `youã`.`usuarios`
+(`usuario`,
+`senha`)
+
+values
+("pablofiote", "amogirassol")
