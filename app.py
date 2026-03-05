@@ -9,6 +9,7 @@ from model.musica import alterar_musica
 from model.musica import recuperar_musicas_filtro
 from model.musica import recuperar_musicas_dois
 from model.usuario_model import cadastrar_usuarios
+from model.usuario_model import autenticar_usuario
 
 from model.genero import recuperar_generos
 
@@ -74,7 +75,18 @@ def tela_cadastro_post():
     cadastrar_usuarios(usuario, senha)
     return render_template("cadastro.html")
 
+@app.route("/login")
+def tela_login():
+    return render_template("login.html")
+
+@app.route("/login",methods=["POST"])
+def tela_login_post():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+    
+
+    if usuario == 1 and senha == 2:
+        return render_template("login.html")
+
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)
-
-

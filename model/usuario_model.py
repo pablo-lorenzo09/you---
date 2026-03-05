@@ -15,7 +15,17 @@ def cadastrar_usuarios(usuario, senha):
     conexao.commit()
     conexao.close()
 
-    print(senha)
+def autenticar_usuario(usuario, senha):
+    conexao,cursor = conectar()
 
-def autenticar_usuario(login, senha):
-    pass
+     
+    cursor.execute("""
+                    select usuario, senha from usuarios
+                   WHERE usuario = %s and senha = %s """,(usuario, senha))
+    
+    usuarios=cursor.fetchone()
+    
+    conexao.commit()
+    conexao.close()
+
+    return usuarios
