@@ -14,7 +14,7 @@ from model.usuario_model import autenticar_usuario
 from model.genero import recuperar_generos
 
 app = Flask(__name__)
-
+app.secret_key =  "euamoocauakkkmentira"
 @app.route("/")
 @app.route("/home",methods=["GET"])
 def pag_principal():
@@ -84,9 +84,11 @@ def tela_login_post():
     usuario = request.form.get("usuario")
     senha = request.form.get("senha")
     
-
-    if usuario == 1 and senha == 2:
-        return render_template("login.html")
+    if autenticar_usuario(usuario, senha):
+        session['usuario_logado'] = usuario
+        return redirect("/admin")
+    else:
+        return redirect("login")
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)
