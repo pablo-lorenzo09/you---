@@ -28,4 +28,8 @@ def autenticar_usuario(usuario, senha):
     conexao.commit()
     conexao.close()
 
-    return usuarios
+    if usuarios:
+        return True
+    else:
+        return False
+    
