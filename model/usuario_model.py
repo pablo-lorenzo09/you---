@@ -1,6 +1,6 @@
 from database.conexao import conectar
 
-def cadastrar_usuario(usuario, senha):
+def cadastrar_usuarios(usuario, senha):
     conexao,cursor = conectar()
 
      

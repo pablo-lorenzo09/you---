@@ -8,6 +8,7 @@ from model.musica import deletar_musica
 from model.musica import alterar_musica
 from model.musica import recuperar_musicas_filtro
 from model.musica import recuperar_musicas_dois
+from model.usuario_model import cadastrar_usuarios
 
 from model.genero import recuperar_generos
 
@@ -62,6 +63,15 @@ def filtro(genero_musica):
 
 @app.route("/cadastro")
 def tela_cadastro():
+    return render_template("cadastro.html")
+
+@app.route("/cadastro",methods=["POST"])
+def tela_cadastro_post():
+    usuario = request.form.get("usuario")
+    senha = request.form.get("senha")
+
+    
+    cadastrar_usuarios(usuario, senha)
     return render_template("cadastro.html")
 
 if __name__=="__main__":
