@@ -28,9 +28,10 @@ def pag_principal():
 def pag_adm():
     musicas = recuperar_musicas_dois()
     genero = recuperar_generos()
-    
-
-    return render_template("administracao.html",musicas=musicas,genero=genero)
+    if 'usuario_logado' in session:
+        return render_template("administracao.html",musicas=musicas,genero=genero)
+    else:
+        return redirect("/login")
 
 
 @app.route("/admin",methods=["POST"])
@@ -88,7 +89,7 @@ def tela_login_post():
         session['usuario_logado'] = usuario
         return redirect("/admin")
     else:
-        return redirect("login")
+        return redirect("/login")
 
 if __name__=="__main__":
     app.run(host="0.0.0.0",port=8080,debug=True)
