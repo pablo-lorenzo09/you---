@@ -1,6 +1,6 @@
 from database.conexao import conectar
 
-def cadastrar_usuarios(usuario, senha):
+def cadastrar_usuarios(usuario:str, senha:str):
     conexao,cursor = conectar()
 
      
@@ -15,7 +15,7 @@ def cadastrar_usuarios(usuario, senha):
     conexao.commit()
     conexao.close()
 
-def autenticar_usuario(usuario, senha):
+def autenticar_usuario(usuario:str, senha:str):
     conexao,cursor = conectar()
 
      
