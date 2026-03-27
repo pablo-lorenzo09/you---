@@ -4,12 +4,12 @@ def cadastrar_usuarios(usuario:str, senha:str):
     conexao,cursor = conectar()
 
      
-    cursor.execute("""insert into `youã`.`usuarios`
+    cursor.execute('''insert into `youã`.`usuarios`
                       (`usuario`,
                        `senha`)
                    
                     values
-                    (%s,%s)""",(usuario, senha))
+                    (%s,%s)''',(usuario, senha))
 
 
     conexao.commit()
@@ -19,9 +19,9 @@ def autenticar_usuario(usuario:str, senha:str):
     conexao,cursor = conectar()
 
      
-    cursor.execute("""
+    cursor.execute('''
                     select usuario, senha from usuarios
-                   WHERE usuario = %s and senha = %s """,(usuario, senha))
+                   WHERE usuario = %s and senha = %s ''',(usuario, senha))
     
     usuarios=cursor.fetchone()
     
